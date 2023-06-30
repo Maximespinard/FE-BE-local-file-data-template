@@ -1,4 +1,4 @@
-/benoit-back/node_modules
-/benoit-front/node_modules
-/benoit-front/.env
-/benoit-front/.env
+/back/node_modules
+/front/node_modules
+/front/.env
+/back/.env
