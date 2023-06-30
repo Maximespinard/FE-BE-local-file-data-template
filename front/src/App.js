@@ -63,7 +63,7 @@ function App() {
           );
         })}
       </ul>
-      <h2>Et là tu peux en créé pour voir si post fonctionne</h2>
+      <h2>Et là tu peux en créé pour voir si post fonctionne fréro</h2>
       <form onSubmit={handleSubmit}>
         <label style={{ display: "block" }}>Ecrit un bail</label>
         <input
