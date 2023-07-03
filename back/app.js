@@ -26,19 +26,21 @@ const file = join(__dirname, "db.json");
 
 // Configure lowdb to write data to JSON file
 const adapter = new JSONFile(file);
-const defaultData = { posts: [] };
+const defaultData = { locations: [] };
 const db = new Low(adapter, defaultData);
 
 // To read data from JSON file
 await db.read();
 
-app.get("/data", async (req, res) => {
-  const data = db.data.data;
-  console.log(db);
-  res.send(data);
+app.get("/locations", async (req, res) => {
+  const locations = db.data.locations;
+  if (!locations) {
+    res.send("error finding locations").status(404);
+  }
+  res.send(locations).status(200);
 });
 
-app.post("/data/add", async (req, res) => {
+/* app.post("/locations/add", async (req, res) => {
   const post = {
     id: nanoid(),
     name: req.body.name,
@@ -53,7 +55,7 @@ app.delete("/data/delete/:id", async (req, res) => {
   await db.data.data.splice(id, 1);
   await db.write();
   res.send(id);
-});
+}); */
 
 app.listen(PORT, () => {
   console.log(`app running on port ${PORT}`);
